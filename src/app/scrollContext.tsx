@@ -1,4 +1,3 @@
-// ScrollContext.tsx
 import React, { createContext, ReactNode } from 'react'
 
 // Define the type of the scrollTo function

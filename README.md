@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Locomotive Anchor Link Scroll #
 
-## Getting Started
+This is a simple app that demonstrates how to use **Locomotive V5.beta** and **context** in **Next.js** to create smooth scrolling effects for anchor links.
 
-First, run the development server:
+![Smooth scroll](public/forReadme/20231108234356.gif)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<hr />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to use ##
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To use this example, you need to follow these steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+  - Create a context file called `scrollContext.tsx` that contains the logic for scrolling and exporting the `ScrollContext` object.
 
-## Learn More
+![ScrollContext](public/forReadme/scrollContext.png)
 
-To learn more about Next.js, take a look at the following resources:
+  - Create a provider component that wraps your app and provides the `scrollTo` function as a value to the `ScrollContext`. The `scrollTo` function takes an event and a selector as arguments and scrolls to the element that matches the selector.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![scrollTo Function](public/forReadme/scrollTo.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+  - Make sure your whole app is inside the provider component, especially the components that use the scrolling feature. Like that:
 
-## Deploy on Vercel
+![scrollProvider](public/forReadme/scrollProvider.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  - In the component where you use anchor links, you have to access the `scrollTo` function from the context, like this: `const scrollTo = useContext(ScrollContext)`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  - Then, in the `<a>` tag, you need to pass the current event and the selector of the target element to the `scrollTo` function, like this: `onClick={(event) => scrollTo(event, '#your_section')`.
+
+  <hr />
+
+  **That's it!!!**
+
+  I hope this example helps you to create really smooth apps and improve your customer's experience. Good luck!

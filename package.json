@@ -12,7 +12,8 @@
     "locomotive-scroll": "^5.0.0-beta.8",
     "next": "14.0.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sass": "^1.69.5"
   },
   "devDependencies": {
     "@types/locomotive-scroll": "^4.1.3",

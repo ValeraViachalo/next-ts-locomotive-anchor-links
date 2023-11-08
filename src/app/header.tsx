@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { ScrollContext } from './scrollContext'
 import { ScrollProvider } from './scrollProvider'
-import styles from './page.module.css'
+import styles from './page.module.scss'
 
 const Header = () => {
   const scrollTo = useContext(ScrollContext)
@@ -15,6 +15,7 @@ const Header = () => {
           <li key={currentLink}>
             <a
               href={`#${currentLink}-section`}
+              className={styles.link}
               onClick={(event) => scrollTo(event, `#${currentLink}-section`)}
             >
               {currentLink}
