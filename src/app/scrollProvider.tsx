@@ -19,14 +19,17 @@ export const ScrollProvider: React.FC<ScrollProviderProps> = ({ children }) => {
     ;(async () => {
       const LocomotiveScroll = (await import('locomotive-scroll')).default
       locomotiveScroll.current = new LocomotiveScroll({
-          el: document.querySelector('#js-scroll'), // the element to apply the scroll (optional write your own, because with default window wrapper could be issues)
-          smooth: true, // enable smooth scrolling
-          duration: 0.7, // duration of the scroll animation
-          smoothTouch: true, // enable smooth touch scrolling
-          smoothWheel: true // enable smooth wheel scrolling
+        lenisOptions: {
+          duration: 0.7,
+          lerp: 0.1,
+          smoothTouch: true,
+          smoothWheel: true,
+          wheelMultiplier: 2,
+        }
       })
     })()
   }, [])
+
 
   // create a easing effects, but you can choose one from Easings.net.
   // https://easings.net/
